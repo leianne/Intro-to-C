@@ -9,7 +9,11 @@
 */
 int string_length(char *s)
 {
-
+    int len = 0;
+    for(int i = 0; s[i] != '\0'; i++){
+        len++;
+    };
+    return len;
 }
 
 /*
@@ -20,10 +24,16 @@ int string_length(char *s)
 */
 char *reverse_string(char *rv, char *s)
 {
-
+    int i, j, len;
+    len = string_length(s);
+    for ( i = len -1; i >= 0; i--) {
+        rv[j++] = s[i];
+    }
+    rv[i] = '\0';
+    return rv;
 }
 
-#ifndef TESTING
+// #ifndef TESTING
 int main(void)
 {
     char quote1[] = "Don't forget to be awesome";
@@ -36,5 +46,12 @@ int main(void)
 
     return 0;
 }
-#endif
+// #endif
     
+// int main(void){
+//     char quote1[] = "Don't forget to be awesome";
+//     string_length(quote1);
+//     char rv[512];
+//     reverse_string(rv, quote1);
+//     return 0;
+// }
